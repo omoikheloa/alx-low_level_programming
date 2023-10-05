@@ -2,7 +2,7 @@
 
 /**
  * main - write to stdout
- * return: Always 1(success)
+ * Return: Always 0
  */
 int main(void)
 {

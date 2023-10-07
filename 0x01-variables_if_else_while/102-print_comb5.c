@@ -4,25 +4,25 @@
  * main - Entry point
  * Description: create two pairs of numbers
  *
- * Return: 0 (Success)
+ * Return: 0
  */
 int main(void)
 {
 	int a, b;
 
-	for (a = 0; a <= 99; a++)
+	for (a = 0; a <= 9; a++)
 	{
-		for (b = a; b <= 99; b++)
+		for (b = 0; b <= 9; b++)
 		{
-			if (b != a)
+			if (a * 10 + b < 99)
 			{
-				putchar(a / 10 + 48);
-				putchar(a % 10 + 48);
+				putchar(a + '0');
+				putchar(b + '0');
 				putchar(' ');
-				putchar(b / 10 + 48);
-				putchar(b % 10 + 48);
+				putchar('0' + a);
+				putchar('0' + b);
 
-				if (!(a == 99 && b == 99))
+				if (a != 9 || b != 8)
 				{
 					putchar(',');
 					putchar(' ');

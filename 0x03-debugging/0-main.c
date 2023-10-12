@@ -2,32 +2,31 @@
 
 /**
  * main - tests function that prints if integer is positive or negative
+ * positive_or_negative - checks whether num is positive or negative
  * Return: 0
  */
 
-void positive_or_negative(int i) 
+void positive_or_negative(int num)
 {
-	if (i > 0) 
+	if (num > 0)
 	{
-		printf("%d is positive\n", i);
+		printf("%d is positive\n", num);
 	}
-	else if (i < 0)
+	else if (num < 0)
 	{
-		printf("%d is negative\n", i);
+		printf("%d is negative\n", num);
 	}
 	else
 	{
-		printf("%d is zero\n", i);
+		printf("%d is zero\n", num);
 	}
-
 }
 
 int main(void)
 {
-        int i;
+	int i;
 
-        i = 0;
+	i = 0;
 	positive_or_negative(i);
-
-        return (0);
+	return (0);
 }

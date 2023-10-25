@@ -5,7 +5,7 @@
  * @n: input number
  * @c: square root function
  *
- * power operation - returns the natural square root of a number
+ * power_operation - returns the natural square root of a number
  * Return: square root or -1
  */
 

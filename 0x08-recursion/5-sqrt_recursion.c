@@ -14,7 +14,7 @@ int power_operation(int n, int c)
 		return (c);
 	if (c * c > n)
 		return (-1);
-	return power_operation(n, c + 1);
+	return (power_operation(n, c + 1));
 }
 
 

@@ -6,6 +6,9 @@
  * @c: square root function
  *
  * power_operation - finds the square root recursively
+ * @n: the number to find the square root of
+ * @c: the current guess for the square root
+ *
  * Return: square root or -1
  */
 

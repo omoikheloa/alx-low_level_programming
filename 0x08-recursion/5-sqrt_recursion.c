@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * _strt_recursion - returns the natural square root of a number
+ * _sqrt_recursion - returns the natural square root of a number
  * @n: input number
  * @c: square root function
  *
+ * power operation - returns the natural square root of a number
  * Return: square root or -1
  */
 

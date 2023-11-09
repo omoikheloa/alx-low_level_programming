@@ -21,7 +21,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (j = 0; j < n; j++)
 	{
 		str = va_arg(args, char *);
-		
+
 		if (!str)
 			str = "(nil)";
 		if (!separator)

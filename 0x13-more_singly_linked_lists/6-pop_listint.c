@@ -26,5 +26,5 @@ int pop_listint(listint_t **head)
 
 	*head = new;
 
-	return(data);
+	return (data);
 }

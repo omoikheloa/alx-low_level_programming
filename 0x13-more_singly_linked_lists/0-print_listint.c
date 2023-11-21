@@ -17,6 +17,5 @@ size_t print_listint(const listint_t *h)
 		h = h->next;
 		node_c++;
 	}
-
 	return (node_c);
 }

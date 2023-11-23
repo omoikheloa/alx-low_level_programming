@@ -22,7 +22,6 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (b[len] != '0' && b[len] != '1')
 		{
-			_putchar('E');
 			return (0);
 		}
 

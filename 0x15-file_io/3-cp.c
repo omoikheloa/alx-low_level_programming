@@ -62,47 +62,36 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
 	buffer = create_buffer(argv[2]);
 	from = open(argv[1], O_RDONLY);
-
-	if (from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		free(buffer);
-		exit(98);
-	}
-
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		free(buffer);
-		exit(99);
-	}
 
+	if (from == -1 || to == -1)
+	{
+		if (from != -1)
+			close_file(from);
+		if (to != -1)
+			close_file(to);
+		dprintf(STDERR_FILENO, "Error: Can't %s  %s\n", (from == -1) ?
+				"read from file" : "write to", (from == -1) ? argv[1] : argv[2]);
+		free(buffer);
+		return ((from == -1) ? 98 : 99);
+	}
 	do {
 		r = read(from, buffer, 1024);
-		if (r == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			free(buffer);
-			exit(98);
-		}
-
 		w = write(to, buffer, r);
-		if (w == -1)
+		if (r == -1 || w == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't %s  %s\n", (r == -1) ?
+					"read from file" : "write to", (r == -1) ? argv[1] : argv[2]);
 			free(buffer);
-			exit(99);
+			close_file(from);
+			close_file(to);
+			return ((r == -1) ? 98 : 99);
 		}
-
 	} while (r > 0);
-
 	close_file(from);
 	close_file(to);
 	free(buffer);
-
 	return (0);
 }

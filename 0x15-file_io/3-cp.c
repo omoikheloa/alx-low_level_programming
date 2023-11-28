@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't %s  %s\n", (from == -1) ?
 				"read from file" : "write to", (from == -1) ? argv[1] : argv[2]);
 		free(buffer);
-		return ((from == -1) ? 98 : 99);
+		exit((from == -1) ? 98 : 99);
 	}
 	do {
 		r = read(from, buffer, 1024);
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 			free(buffer);
 			close_file(from);
 			close_file(to);
-			return ((r == -1) ? 98 : 99);
+			exit((r == -1) ? 98 : 99);
 		}
 	} while (r > 0);
 	close_file(from);

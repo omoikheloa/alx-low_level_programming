@@ -1,0 +1,1 @@
+Dynamic libraries, also known as shared libraries, play a crucial role in the Linux ecosystem. They are files containing compiled code that can be loaded and executed by programs dynamically at runtime
